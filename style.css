@@ -1,0 +1,106 @@
+:root {
+    --primary: #9d50bb; /* Purple Gradient start */
+    --secondary: #6e48aa; /* Purple Gradient end */
+    --bg-dark: #0a0a0c;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { background: var(--bg-dark); color: #fff; line-height: 1.6; overflow-x: hidden; }
+
+/* Background Animation */
+/* Hero Section Table/Class update karein */
+.hero-section { 
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('aapki-image-ka-naam.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Puri screen cover karne ke liye */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Button class update karein */
+.hero-section button, .let-connect-btn {
+    margin-top: 30px; /* Is value ko badha kar aap aur niche kar sakti hain */
+    padding: 12px 30px;
+    cursor: pointer;
+    /* Baaki aapka purana style yahan rahega */
+}
+
+
+.container { padding: 80px 10%; }
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    transition: 0.4s;
+}
+
+.glass-card:hover { transform: scale(1.02); border-color: var(--primary); }
+
+/* Experience Grid 2 Columns */
+.experience-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.exp-item { margin-bottom: 20px; border-left: 2px solid var(--primary); padding-left: 15px; }
+.exp-item h4 { color: var(--primary); margin-bottom: 5px; }
+
+/* Skills Tags */
+.tags span {
+    display: inline-block;
+    background: rgba(157, 80, 187, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+    border: 1px solid var(--primary);
+}
+
+/* Nav & Hero */
+nav { display: flex; justify-content: space-between; padding: 20px 10%; position: fixed; width: 100%; top: 0; background: rgba(0,0,0,0.8); z-index: 100; }
+nav ul { display: flex; list-style: none; }
+nav ul li a { color: #fff; text-decoration: none; margin-left: 20px; }
+
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 20px; box-shadow: 0 0 30px var(--primary); }
+
+.btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: #fff; padding: 12px 30px; border-radius: 25px; text-decoration: none;
+    font-weight: bold; border: none; cursor: pointer; transition: 0.3s;
+}
+.btn:hover { box-shadow: 0 0 20px var(--primary); }
+
+/* Contact */
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; }
+input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: #fff; }
+
+@media (max-width: 768px) {
+    .experience-grid-2, .contact-wrapper { grid-template-columns: 1fr; }
+}
+/* Button ko text se niche dhakelnay ke liye */
+.hero-content button, .btn, .let-connect-btn {
+    margin-top: 50px !important; 
+    display: inline-block;
+}
+.hero-content button, .let-connect-btn {
+    margin-top: 50px !important;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Thoda sa hover effect bhi add kar dete hain */
+.hero-content button:hover {
+    transform: scale(1.1);
+}

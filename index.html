@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhawna Sharma | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050508;
+            --purple-glow: rgba(155, 81, 224, 0.15);
+            --purple-accent: #a855f7;
+            --purple-light: #d8b4fe;
+            --glass-bg: rgba(20, 16, 32, 0.6);
+            --glass-border: rgba(168, 85, 247, 0.2);
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--purple-glow) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, var(--purple-glow) 0%, transparent 40%);
+        }
+
+        /* Navbar with Glassmorphism */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(10, 7, 18, 0.6);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--purple-accent);
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--purple-accent);
+        }
+
+        section {
+            padding: 120px 8% 60px 8%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: var(--purple-accent);
+        }
+
+        /* --- HOME SECTION --- */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .hero-left {
+            flex: 1.2;
+        }
+
+        .hero-left h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-left h1 span {
+            color: var(--purple-accent);
+        }
+
+        .hero-left .cyber-title {
+            font-size: 22px;
+            color: var(--purple-light);
+            font-weight: 300; /* Light text layout */
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero-left .college-tag {
+            font-size: 18px;
+            color: var(--text-muted);
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 300; /* Light text layout */
+        }
+
+        .hero-right {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Glassmorphic Box Type Image Container */
+        .image-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .image-box h3 {
+            font-size: 22px;
+            font-weight: 700; /* Bold Name under photo */
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .image-box p {
+            font-size: 14px;
+            color: var(--purple-light);
+            font-weight: 300; /* Light subtitle text */
+        }
+
+        /* --- ABOUT ME SECTION --- */
+        .about-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .about-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+        }
+
+        .about-sub-section h4 {
+            font-size: 18px;
+            color: var(--purple-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-sub-section ul {
+            list-style: none;
+        }
+
+        .about-sub-section ul li {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-sub-section ul li i {
+            color: var(--purple-accent);
+            font-size: 12px;
+        }
+
+        /* --- INTERNSHIP, EXPERIENCE & ACHIEVEMENTS --- */
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .exp-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .exp-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.5);
+        }
+
+        .exp-box h3 {
+            font-size: 20px;
+            color: var(--purple-light);
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            padding-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .exp-box h3 i {
+            color: var(--purple-accent);
+        }
+
+        .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-item h4 {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exp-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skills-category {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .skills-category h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--purple-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--purple-accent);
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 25px;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.5);
+            background: rgba(20, 16, 32, 0.8);
+        }
+
+        .project-card i {
+            font-size: 26px;
+            color: var(--purple-accent);
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            color: var(--purple-light);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-info-card h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .info-item i {
+            width: 35px;
+            font-size: 18px;
+            color: var(--purple-light);
+        }
+
+        .info-item a {
+            color: var(--purple-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--purple-accent);
+            text-decoration: underline;
+        }
+
+        .contact-form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--glass-border);
+            padding: 16px;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--purple-accent);
+        }
+
+        .form-group textarea {
+            height: 140px;
+            resize: none;
+        }
+
+        .submit-btn {
+            background: var(--purple-accent);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: #b55fe6;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: left;
+            padding: 30px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Setup */
+        @media (max-width: 960px) {
+            header { padding: 20px 5%; }
+            section { padding: 100px 5% 40px 5%; }
+            .hero-container { flex-direction: column-reverse; text-align: center; }
+            .hero-left h1 { font-size: 48px; }
+            .hero-left .college-tag { font-size: 15px; }
+            .skills-wrapper, .contact-container, .about-details-grid { grid-template-columns: 1fr; }
+            .submit-btn { width: 100%; }
+            .image-box { width: 100%; max-width: 340px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">BHAWNA<span>.</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1>Bhawna Sharma</h1>
+                <div class="cyber-title">3rd year undergraduate student at government women engineering college Ajmer Rajasthan</div>
+                <div class="college-tag">Cybersecurity Enthusiast</div>
+            </div>
+            <div class="hero-right">
+                <div class="image-box">
+                    <img src="images/profile.jpg" alt="Bhawna Sharma">
+                    <h3>Bhawna Sharma</h3>
+                    <p>CSE 3rd Year • GWECA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="about-card">
+            <p>
+                I am a passionate Computer Science Engineering (CSE) student currently pursuing my B.Tech degree at Government Women Engineering College (GWECA), Ajmer. As a third-year undergraduate, I have developed a core academic interest focused on Cybersecurity, ethical hacking frameworks, and software web/app development architectures. I love exploring computing mechanisms, learning new digital paradigms, and engineering systems that bridge efficiency with high security.
+            </p>
+            <p>
+                Beyond technical frameworks, I actively invest my time in continuous self-improvement and community building. I enjoy taking on interactive roles that empower collaborative coding networks, enhance collective learning environments, and allow me to develop strategic communication, technical leadership, and global organizational skills.
+            </p>
+            
+            <div class="about-details-grid">
+                <div class="about-sub-section">
+                    <h4><i class="fa-solid fa-heart"></i> Hobbies</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Playing Competitive Volleyball</li>
+                        <li><i class="fa-solid fa-circle"></i> Outdoor Cycling</li>
+                        <li><i class="fa-solid fa-circle"></i> Creative Sketching & Drawing</li>
+                        <li><i class="fa-solid fa-circle"></i> Travelling and exploring local cultures</li>
+                        <li><i class="fa-solid fa-circle"></i> Learning emerging tools and system architectures</li>
+                    </ul>
+                </div>
+                <div class="about-sub-section">
+                    <h4><i class="fa-solid fa-building-columns"></i> Roles & Responsibilities</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Campus Ambassador at GeeksforGeeks</li>
+                        <li><i class="fa-solid fa-circle"></i> Campus Ambassador at Smarted</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Journey & <span>Milestones</span></h2>
+        <div class="experience-container">
+            
+            <div class="exp-box">
+                <h3><i class="fa-solid fa-ranking-star"></i> Campus Ambassador Roles</h3>
+                <div class="exp-item">
+                    <h4>GeeksforGeeks Campus Ambassador</h4>
+                    <p>Represented the platform at the college campus, engineered community workshops, and scaled interactive coding ecosystems among students.</p>
+                </div>
+                <div class="exp-item" style="margin-top: 20px;">
+                    <h4>Smarted Campus Ambassador</h4>
+                    <p>Collaborated with peer learning communities to drive technical awareness, student resources distribution, and educational webinars.</p>
+                </div>
+            </div>
+
+            <div class="exp-box">
+                <h3><i class="fa-solid fa-briefcase"></i> Internship & Experience</h3>
+                <div class="exp-item">
+                    <h4>Cybersecurity Intern — Ediglobe</h4>
+                    <p>Analyzed network configurations, identified code structure vulnerabilities, and performed digital security framework studies during the active internship tenure.</p>
+                </div>
+                <div class="exp-item" style="margin-top: 20px;">
+                    <h4>Cybersecurity Simulation Projects</h4>
+                    <p>Designed and analyzed custom Phishing Attack environments and structured modern, validated authorization Login Systems to protect local data entry.</p>
+                </div>
+            </div>
+
+            <div class="exp-box">
+                <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+                <div class="exp-item">
+                    <h4>Physics Wallah (PW) District Test</h4>
+                    <p>Achieved 3rd Rank at the District Level in a highly competitive technical evaluation test conducted by PW during school years. Honored with a Medal and an official merit Voucher.</p>
+                </div>
+                <div class="exp-item">
+                    <h4>Adobe India Hackathon</h4>
+                    <p>Participated in the high-intensity Adobe India Hackathon, designing and demonstrating computational solutions alongside national tech innovators.</p>
+                </div>
+                <div class="exp-item">
+                    <h4>North Western Railway Certificate</h4>
+                    <p>Engaged in an institutional observation program with North Western Railway during school education, learning infrastructure control mechanisms and receiving an official certificate with medal and wrocher</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="skills-wrapper">
+            <div class="skills-category">
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Basics of HTML</span>
+                    <span class="skill-tag">Data Structures & Algorithms (DSA)</span>
+                    <span class="skill-tag">Cybersecurity</span>
+                    <span class="skill-tag">Basic knowledge of Hacking</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Leadership & Team Collaboration</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Continuous Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Phishing Attack & Login System</h3>
+                    <p>A cybersecurity project designed to test baseline verification parameters, handling simple authentication layers securely.</p>
+                </div>
+                <span class="project-tech">Security / Auth</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h3>Oshii Enterprises</h3>
+                    <p>A multi-page functional school book and stationery web storefront featuring a mock interactive cart system layout.</p>
+                </div>
+                <span class="project-tech">HTML / CSS / JavaScript</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-store"></i>
+                    <h3>The Papad House</h3>
+                    <p>A dedicated digital web architecture designed to support a local home business scaling its domestic product operations.</p>
+                </div>
+                <span class="project-tech">Web Layout</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h3>Mini CRM System</h3>
+                    <p>A lead management console layout showing system metrics tracking records with glassmorphism frontend configurations.</p>
+                </div>
+                <span class="project-tech">Web Engineering</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h3>Persistent CRUD App</h3>
+                    <p>A dedicated logic application that handles persistent task logs recording and state updating using systematic file I/O operations.</p>
+                </div>
+                <span class="project-tech">Python / File I/O</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-spider"></i>
+                    <h3>Web Scraping Engine</h3>
+                    <p>An automated script engineered to parse structural targeted data tables out of specified live webpage elements.</p>
+                </div>
+                <span class="project-tech">Python Scripting</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-terminal"></i>
+                    <h3>Console CRUD Engine</h3>
+                    <p>A solid terminal backend utility enabling standard creation, reading, and array indexing data updates via command lines.</p>
+                </div>
+                <span class="project-tech">C++ / Java Core</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>Text-Based Game</h3>
+                    <p>An interactive text-driven terminal application completely run through targeted conditional statements logic handling.</p>
+                </div>
+                <span class="project-tech">Logic Control</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-arrow-numerical-positive"></i>
+                    <h3>Number Pattern Generator</h3>
+                    <p>An algorithmic script configuring nested iteration loops to execute structured numerical matrices on terminal displays.</p>
+                </div>
+                <span class="project-tech">Core Programming</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <h3>Temperature Converter</h3>
+                    <p>A responsive lightweight tool converting metric thermal states seamlessly between Celsius, Fahrenheit, and Kelvin.</p>
+                </div>
+                <span class="project-tech">HTML / CSS / JS</span>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <i class="fa-solid fa-calculator"></i>
+                    <h3>Smart Calculator</h3>
+                    <p>A standard mathematical calculation script interface supporting foundational arithmetic problem-solving logic.</p>
+                </div>
+                <span class="project-tech">Frontend Flow</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <div class="contact-container">
+            <div class="contact-info-card">
+                <h2>Contact Info</h2>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 6367287336</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>bhawnaaaa@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="#" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa-brands fa-github"></i>
+                    <a href="#" target="_blank">GitHub Profile</a>
+                </div>
+            </div>
+
+            <form class="contact-form-container" action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy;  Bhawna Sharma | All Rights Reserved
+    </footer>
+
+</body>
+</html>
